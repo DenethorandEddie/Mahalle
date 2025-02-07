@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Ana Sayfa -->
+  <url>
+    <loc>https://mahalleci.com/</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Kullanıcı Sayfaları -->
+  <url>
+    <loc>https://mahalleci.com/profile</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Yasal Sayfalar -->
+  <url>
+    <loc>https://mahalleci.com/legal/privacy-policy</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mahalleci.com/legal/terms-of-service</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mahalleci.com/legal/kvkk</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mahalleci.com/legal/cookie-policy</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Hata Sayfaları -->
+  <url>
+    <loc>https://mahalleci.com/404</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://mahalleci.com/500</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <!-- Admin Sayfaları -->
+  <url>
+    <loc>https://mahalleci.com/admin/dashboard</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset> 

@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "localId": "testuser1",
+      "email": "test@example.com",
+      "emailVerified": true,
+      "displayName": "Test User",
+      "photoUrl": "https://example.com/photo.jpg",
+      "providerUserInfo": [
+        {
+          "providerId": "google.com",
+          "rawId": "testuser1",
+          "email": "test@example.com",
+          "displayName": "Test User",
+          "photoUrl": "https://example.com/photo.jpg"
+        }
+      ]
+    }
+  ]
+} 

@@ -1,0 +1,16 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+Allow: /profile
+Allow: /mahalle/*
+Allow: /legal/*
+Allow: /admin/*
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://mahalleci.com/sitemap.xml 

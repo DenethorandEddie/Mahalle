@@ -1,0 +1,495 @@
+1. Proje Başlangıcı ve Planlama
+a. Proje Tanımlaması ve Hedefler
+Genel Hedef: Kullanıcıların mahallelerine özel içerikler ekleyebileceği, yorum/alt yorum ve oy verme işlevlerinin bulunduğu interaktif, dinamik ve responsive bir web sitesi geliştirmek.
+UI/UX: Turuncu temalı, yerel hava taşıyan “Mahalleci” görünümü ve kullanıcı etkileşimleri için cursor: pointer gibi stil öğelerinin kullanılması.
+Veri Kaynağı: İl, ilçe, mahalle bilgilerini içeren data.json dosyası üzerinden dinamik dropdown menülerin oluşturulması.
+data.json dosyası data\data.json olarak bulunmaktadır. Dosyadaki format içeriği aşağıda kısa bir şekilde verilmiştir.
+[
+    {
+        "il": "Adana",
+        "ilce": "Aladağ",
+        "mahalle": [
+            "Akören",
+            "Akpınar",
+            "Boztahta",
+            "Başpınar",
+            "Büyüksofulu",
+            "Ceritler",
+            "Darılık",
+            "Dayılar",
+            "Dölekli",
+            "Ebrişim",
+            "Eğner",
+            "Gerdibi",
+            "Gireğiyeniköy",
+            "Gökçe",
+            "Kabasakal",
+            "Karahan",
+            "Kıcak",
+            "Kökez",
+            "Köprücük",
+            "Madenli",
+            "Mansurlu",
+            "Mazılık",
+            "Kışlak",
+            "Kızıldam",
+            "Küp",
+            "Posyağbasan",
+            "Sinanpaşa",
+            "Uzunkuyu",
+            "Yetimli",
+            "Yüksekören",
+            "Topallı"
+        ]
+    },
+    {
+        "il": "Adana",
+        "ilce": "Ceyhan",
+        "mahalle": [
+            "Toktamış",
+            "Tumlu",
+            "Şehit hacı ibrahim",
+            "Zübeyde hanım",
+            "Selimiye",
+            "Şahin özbilen",
+            "Ulus",
+            "Yarsuat",
+            "Yellibel",
+            "Yılankale",
+            "Yeşilbahçe",
+            "Yeşildam",
+            "Üçdutyeşilova",
+            "Tatlıkuyu",
+            "Veysiye",
+            "Yalak",
+            "Sirkeli",
+            "Sağırlar",
+            "Sağkaya",
+            "Soğukpınar",
+            "Soysallı",
+            "Tatarlı",
+            "Namık kemal",
+            "Narlık",
+            "Nazımbey yeniköy",
+            "Küçükmangıt",
+            "Kuzucak",
+            "Küçükburhaniye",
+            "Küçükkırım",
+            "Mithatpaşa",
+            "Modernevler",
+            "Muradiye",
+            "Sarıbahçe",
+            "Sarımazı",
+            "Sarısakal",
+            "Mustafabeyli",
+            "Kızıldere",
+            "Kıvrıklı",
+            "Konakoğlu",
+            "Kurtkulağı",
+            "Kurtpınar",
+            "Mercimek",
+            "Mercin",
+            "Köprülü",
+            "Koruklu",
+            "Körkuyu",
+            "Kösreli",
+            "Hürriyet",
+            "Irmaklı",
+            "Isırganlı",
+            "Kılıçkaya",
+            "Kelemeti",
+            "Karakayalı",
+            "İstiklal",
+            "İmran",
+            "İnceyer",
+            "İnönü",
+            "İsalı",
+            "Erenler",
+            "Esentepe",
+            "Gümürdülü",
+            "Hamdilli",
+            "Hamidiye",
+            "Hamitbey",
+            "Hamitbeybucağı",
+            "Gündoğan",
+            "Günlüce",
+            "Gazi osman paşa",
+            "Ekinyazı",
+            "Elmagölü",
+            "Emek",
+            "Fatih sultan mehmet",
+            "Doruk",
+            "Durhasandede",
+            "Dutlupınar",
+            "Değirmendere",
+            "Değirmenli",
+            "Dağıstan",
+            "Çataklı",
+            "Çatalhüyük",
+            "Ceyhanbekirli",
+            "Camuzağılı",
+            "Büyükkırım",
+            "Büyükmangıt",
+            "Büyükburhaniye",
+            "Başören",
+            "Belediye evleri",
+            "Burhaniye",
+            "Burhanlı",
+            "Çevretepe",
+            "Çiçekli",
+            "Çiftlikler",
+            "Çokçapınar",
+            "Dikilitaş",
+            "Dokuztekne",
+            "Atatürk",
+            "Aydınlar",
+            "Bota",
+            "Civantayak",
+            "Cumhuriyet",
+            "Çakaldere",
+            "Aytemuroğlu",
+            "Azizli",
+            "Birkent",
+            "Akdam",
+            "Adapınar",
+            "Adatepe",
+            "Ağaçlı",
+            "Ağaçpınar",
+            "Altıgözbekirli",
+            "Altıkara",
+            "Altıocak"
+        ]
+    },
+    {
+        "il": "Adana",
+        "ilce": "Feke",
+        "mahalle": [
+            "Tortulu",
+            "Tokmanaklı",
+            "Uğurlubağ",
+            "Şahmuratlı",
+            "Süphandere",
+            "Sülemişli",
+            "Yaylapınar",
+            "Paşalı",
+            "Olucak",
+            "Ormancık",
+            "Tenkerli",
+            "Yeşildüşmüş",
+            "Yerebakan",
+            "Musalar",
+            "Ortaköy",
+            "Oruçlu",
+            "Kaşaltı",
+            "Karacauşağı",
+            "Kayadibi",
+            "Kaleyüzü",
+            "Karacaoğlan",
+            "Koçyazı",
+            "Konakkuran",
+            "Kısacıklı",
+            "Kızılyer",
+            "Mansurlu",
+            "Kovukçınar",
+            "Hıdıruşağı",
+            "Güzpınarı",
+            "İslam",
+            "İncirci",
+            "Keklikçe",
+            "Kazancı",
+            "Kırıkuşağı",
+            "Gökçeli",
+            "Gedikli",
+            "Gaffaruşağı",
+            "Gürümze",
+            "Göbelli",
+            "Belenköy",
+            "Çandırlar",
+            "Çürükler",
+            "Değirmenciuşağı",
+            "Çondu",
+            "Bağdatlı",
+            "Bahçecik",
+            "Akoluk",
+            "Akkaya"
+        ]
+    },
+    {
+        "il": "Adana",
+        "ilce": "Karaisalı",
+        "mahalle": [
+            "Topaktaş",
+            "Topkaralı",
+            "Torunsolaklı",
+            "Tümenli",
+            "Saypınar",
+            "Selampınar",
+            "Yazıbaşı",
+            "Tatık",
+            "Sadıkali",
+            "Nergizlik",
+            "Nuhlu",
+            "Ömerli",
+            "Sarımehmetli",
+            "Murtçukuru",
+            "Kocaveliler",
+            "Kuşcusofulu",
+            "Kuyucu",
+            "Kuzgun",
+            "Kaledağı",
+            "Kapıkaya",
+            "Maraşlı",
+            "Körüklü",
+            "Kırıklı",
+            "Kıralan",
+            "Karakuyu",
+            "Karapınar",
+            "Karahasanlı",
+            "Karakılıç",
+            "Emelcik",
+            "Eğlence",
+            "Döşekevi",
+            "Durak",
+            "Demirçit",
+            "Gildirli",
+            "Güvenç",
+            "Filikli",
+            "Fettahlı",
+            "Gökhasanlı",
+            "Etekli",
+            "Hacımusalı",
+            "Gülüşlü",
+            "Hacılı",
+            "Bekirli",
+            "Başkıf",
+            "Çeceli",
+            "Çatalan",
+            "Çorlu",
+            "Çukur",
+            "Çocuklar",
+            "Çevlik",
+            "Barakdağı",
+            "Ayakkıf",
+            "Aşağıbelemedik",
+            "Aşağıyörükler",
+            "Bucak",
+            "Boztahta",
+            "Bolacalı",
+            "Çakallı",
+            "Beydemir",
+            "Aktaş",
+            "Altınova",
+            "Akçalı"
+        ]
+    },
+    {
+        "il": "Adana",
+        "ilce": "Karataş",
+        "mahalle": [
+            "Adalı",
+            "Bahçe",
+            "Çağşırlı",
+            "Çakırören",
+            "Ataköy",
+            "Dolaplı",
+            "Çimeli",
+            "Çukurkamış",
+            "Develiören",
+            "Çavuşlu",
+            "Damlapınar",
+            "Bebeli",
+            "Gölyaka",
+            "Hasırağacı",
+            "Karagöçer",
+            "İsahacılı",
+            "İnnaplıhüyüğü",
+            "Karataş",
+            "Kemaliye",
+            "Kırhasan",
+            "Kesik",
+            "Meletmez",
+            "Hacıhasan",
+            "Helvacı",
+            "Kapı",
+            "Karşıyaka",
+            "Konaklı",
+            "Kızıltahta",
+            "Kiremitli",
+            "Sarımsaklı",
+            "Oymaklı",
+            "Orta",
+            "Sirkenli",
+            "Terliksiz",
+            "Yenimurat",
+            "Yassıören",
+            "Yemişli",
+            "Yeni",
+            "Yüzbaşı",
+            "Tuzla",
+            "Tuzkuyusu",
+            "Topraklı",
+            "Tabaklar"
+        ]
+    },
+    {
+        "il": "Adana",
+        "ilce": "Kozan",
+        "mahalle": [
+            "Şerifli",
+            "Şevkiye",
+            "Tufanlı",
+            "Tufanpaşa",
+            "Turunçlu",
+            "Turgutlu",
+            "Türkeli",
+            "Yüksekören",
+            "Zerdali",
+b. Kullanılacak Teknolojiler ve Araçlar
+Frontend: React, Next.js, TypeScript, Modern JavaScript (ES6+), HTML, CSS.
+Asenkron İşlemler: async/await, fetch veya WebSocket.
+Kod Kalitesi: ESLint (örnek konfigürasyon uygulanacak), Prettier.
+Veri ve Depolama: Firebase (gerekli SDK’ların kurulumu ve yapılandırması).
+Diğer: Responsive tasarım prensipleri, modüler yapı ve iyi dokümantasyon.
+c. Proje Yapısı ve Dosya Düzeni
+Ana Veri Kaynağı: C:\Users\berk\Documents\Codes\study15\data\data.json dosyasının incelenmesi ve ilgili dropdown menülerin oluşturulması.
+Görseller ve Faviconlar: alsancak.jpg, cankaya.jpg, kadikoy.jpg gibi görsellerin uygun dizinlerde yer alması; favicon.ico, favicon.png, favicon.svg dosyalarının entegrasyonu.
+Modüler Yapı: Her bileşen ve yardımcı fonksiyon için ayrı dosya yapısının oluşturulması.
+2. Tasarım ve Ön Hazırlık Aşaması
+a. UI/UX Tasarımı
+Wireframe ve Mockup:
+Ana sayfa, mahalle detay sayfaları, yorum ve alt yorum formları için temel tasarımların oluşturulması.
+Kullanıcı etkileşimleri (buton tıklamaları, form submit işlemleri) ve responsive davranışların planlanması.
+Tema Renkleri ve Stil:
+Turuncu ağırlıklı renk paleti.
+Tıklanabilir ögeler için cursor: pointer CSS kuralı.
+b. Veri Yapısı ve Akış Diyagramları
+Dropdown Menüler: İl, ilçe ve mahalle seçimi için veri akışı ve ilişkilendirme.
+Yorum Sistemi:
+Yorum bileşenlerinin yapısı: yazar adı, içerik, oy sayısı, “arttır” ve “azalt” butonları.
+Alt yorumların hiyerarşik (nested) gösterimi.
+Asenkron İşlemler Akışı:
+Yorum ekleme, alt yorum ekleme ve oy verme işlemleri için veri güncelleme akışı (fetch, WebSocket veya AJAX).
+c. Firebase Yapılandırması
+SDK Kurulumu: npm install firebase ve firebase-tools kurulumu.
+Firebase Konfigürasyonu: Proje ayarlarının eklenmesi (apiKey, authDomain, projectId, vb.).
+Entegrasyon Adımları: Firebase Analytics ve diğer kullanılacak servislerin yapılandırılması.
+Gerekli bilgiler:
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBdJTbvvaAV7gTUc-n-xuFgqOTEnHTgbdI",
+  authDomain: "mahalle-cursor.firebaseapp.com",
+  projectId: "mahalle-cursor",
+  storageBucket: "mahalle-cursor.firebasestorage.app",
+  messagingSenderId: "54283411994",
+  appId: "1:54283411994:web:b1fc199dc1ba60c266e7a3",
+  measurementId: "G-CHLB321C6V"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
+3. Geliştirme Süreci
+a. Proje İskeletinin Oluşturulması
+Next.js Sayfa Yapısı:
+Ana sayfa ve mahalle detay sayfalarının oluşturulması.
+Next.js router ile sayfalar arası geçişlerin planlanması.
+React Bileşenleri:
+Her sayfa için gerekli bileşenlerin (header, footer, sidebar vs.) modüler olarak oluşturulması.
+Yorum bileşeni, alt yorum bileşeni ve dinamik dropdown bileşenlerinin geliştirilmesi.
+TypeScript Tip Güvenliği:
+Bileşen ve yardımcı fonksiyonlar için interface ve type tanımlamalarının yapılması.
+b. Fonksiyonel Özelliklerin Geliştirilmesi
+Dropdown Menüler:
+data.json verilerinin okunması ve dinamik il, ilçe, mahalle seçimlerinin oluşturulması.
+Kullanıcı seçimlerine göre liste güncellemelerinin sağlanması.
+Yorum ve Alt Yorum Sistemi:
+Yorum ekleme formunun oluşturulması.
+Yorum sıralaması: En yüksek oy puanına göre sıralama mekanizmasının uygulanması.
+“Cevap Yaz” butonuna basıldığında ilgili yorum altında alt yorum formunun açılması.
+Oy Verme İşlemleri:
+“Arttır” ve “Azalt” butonlarının fonksiyonlarının uygulanması.
+Asenkron veri güncellemesi (örneğin fetch çağrıları) ve UI’ın anında güncellenmesi.
+c. Asenkron İşlemler ve Veri Güncellemeleri
+AJAX/Fetch API Kullanımı:
+Form submit, buton tıklaması gibi işlemlerde verilerin asenkron olarak sunucuya gönderilmesi.
+Veri güncelleme işlemlerinde UI’ın anlık olarak yenilenmesi.
+WebSocket Entegrasyonu (Opsiyonel):
+Gerçek zamanlı güncellemeler ve kullanıcı etkileşimleri için WebSocket seçeneklerinin değerlendirilmesi.
+d. Hata Yönetimi ve Geri Bildirim
+Try/Catch Blokları:
+Tüm asenkron işlemlerde try/catch kullanılarak hata yönetiminin sağlanması.
+Kullanıcıya Bildirimler:
+Form doğrulama hataları, veri gönderme hataları veya diğer aksaklıklar için kullanıcı dostu hata mesajlarının gösterilmesi.
+Fallback Senaryoları:
+Veri kaynağının okunamaması, sunucu hataları veya internet bağlantısı problemleri gibi durumlarda yedek mesajlar ve fallback UI’ların tasarlanması.
+e. Güvenlik ve Performans İyileştirmeleri
+Kullanıcı Girişlerinin Doğrulanması:
+Form verilerinin sanitizasyonu ve doğrulama işlemlerinin eklenmesi.
+Performans Optimizasyonu:
+Gereksiz render’lardan kaçınmak için React memoization tekniklerinin kullanılması.
+Lazy loading ve dinamik import ile bileşen performansının artırılması.
+4. Test ve İnceleme Süreci
+a. Unit Testler ve Entegrasyon Testleri
+Test Araçları: Jest, React Testing Library gibi araçların kullanımı.
+Bileşen Testleri:
+Yorum, alt yorum ve dropdown bileşenlerinin bağımsız testlerinin yazılması.
+Asenkron İşlemler Testi:
+Fetch çağrıları, hata durumları ve veri güncellemeleri için test senaryoları oluşturulması.
+b. UI/UX Testleri
+Responsive Tasarım Testleri:
+Farklı cihazlarda (mobil, tablet, masaüstü) sitenin uyumlu çalıştığının test edilmesi.
+Kullanıcı Etkileşimleri:
+Buton, form ve linklerin cursor: pointer gibi stil ve davranış kontrollerinin yapılması.
+c. Linter ve Format Kontrolleri
+ESLint ve Prettier:
+Kodun standartlara uygunluğu için ESLint ve Prettier kontrollerinin entegre edilmesi.
+Geliştirme sırasında otomatik kod formatlaması ve hata bildirimlerinin alınması.
+5. Dağıtım ve Yayına Alma Süreci
+a. Son Düzenlemeler ve Optimizasyonlar
+Kod Temizliği: Gereksiz kod ve yorumların temizlenmesi, refactoring işlemlerinin yapılması.
+Performans Testleri: Son performans ölçümlerinin yapılması, kullanıcı deneyiminin optimize edilmesi.
+b. Firebase Entegrasyonu ve Dağıtım
+Firebase Deploy: Firebase CLI kullanılarak projenin deploy edilmesi.
+Sunucu ve CDN Ayarları: Gerekli ayarlamaların yapılması ve performans optimizasyonlarının uygulanması.
+c. Yayın Sonrası İzleme ve Geri Bildirim
+Analytics İzleme: Firebase Analytics ve diğer izleme araçlarının yapılandırılması.
+Kullanıcı Geri Bildirimi: Kullanıcıların bildirdiği sorunlara yönelik hızlı müdahale ve düzeltme süreçlerinin oluşturulması.
+Hata Logları: Sunucu tarafı hata loglarının düzenli olarak kontrol edilmesi ve raporlanması.
+6. Sürekli İyileştirme ve Bakım
+a. Dokümantasyon
+Kod ve Proje Dokümantasyonu: Tüm bileşen, fonksiyon ve akışların detaylı dokümantasyonu.
+Geliştirici Notları: Yeni özellik ekleme, hata çözümü ve refactoring süreçleri için güncel notların tutulması.
+b. Geri Bildirim Döngüsü
+Kullanıcı Anketleri ve Test Oturumları: Proje yayına alındıktan sonra kullanıcı geri bildirimlerinin toplanması.
+Sürüm Güncellemeleri: Belirli aralıklarla yapılan güncellemeler ve hata düzeltmeleri.
+c. Yeni Özelliklerin Planlanması
+Genişletilebilirlik: Projenin ilerleyen dönemlerde ek özellikler (örneğin, kullanıcı profili, bildirim sistemi) için modüler yapısının korunması.
+Performans ve Güvenlik Güncellemeleri: Sürekli olarak performans iyileştirmeleri ve güvenlik yamalarının uygulanması.
+7. Acil Durum ve Hata Senaryoları
+a. Hata Tespit Süreci
+Hata Loglama: Hata durumlarında console logları, hata raporlama servisleri (örn. Sentry) ve Firebase Analytics üzerinden loglama yapılması.
+Bildirimler: Kritik hatalarda geliştirici ekibine otomatik bildirim gönderimi.
+b. Hata Çözümü Prosedürleri
+Kod Geri Alım: Kritik hata durumlarında son stabil sürüme geri dönme prosedürlerinin oluşturulması.
+A/B Testleri: Sorunlu bileşenler için alternatif çözümlerin test edilmesi.
+Dokümantasyon: Her hata ve çözüm süreci dokümante edilerek benzer durumlarda hızlı müdahale imkanı sağlanması.
+c. Yedekleme ve Veri Güvenliği
+Veri Yedekleme: data.json ve Firebase verilerinin düzenli yedeklerinin alınması.
+Güvenlik Protokolleri: Kullanıcı verilerinin korunması için gerekli güvenlik önlemlerinin (örneğin, HTTPS, CORS) uygulanması.
+Özet
+Bu roadmap, “Mahalle” projesinin tüm geliştirme sürecinde uyulması gereken kuralları, adımları ve stratejileri detaylı olarak belirlemektedir. Her aşamada:
+
+Standartlara Uyum: ES6+, TypeScript, modüler yapı, ve kod formatlama kurallarına dikkat edilecek.
+Asenkron ve Dinamik İşlemler: Yorum, alt yorum, oy verme ve dropdown menü işlevleri asenkron işlemlerle desteklenecek.
+Kullanıcı Deneyimi: Responsive tasarım, interaktif ögeler ve kullanıcıya anlık geri bildirimler ön planda tutulacak.
+Hata Yönetimi: Try/catch, kullanıcı dostu hata mesajları ve loglama mekanizmaları uygulanacak.
+Dağıtım ve Bakım: Firebase entegrasyonu, performans optimizasyonları ve sürekli güncellemeler ile proje canlıya alınacak ve bakımı sağlanacaktır.

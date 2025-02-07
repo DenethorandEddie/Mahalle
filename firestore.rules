@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Kullanıcı dokümanları
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Yorumlar
+    match /comments/{commentId} {
+      allow read: if true;  // Herkese okuma izni
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && 
+        (resource.data.userId == request.auth.uid || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
+      
+      // Yorumlara verilen cevaplar
+      match /replies/{replyId} {
+        allow read: if true;  // Herkese okuma izni
+        allow write: if request.auth != null;
+      }
+    }
+    
+    // Bildirimler
+    match /notifications/{notificationId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow write: if request.auth != null;
+    }
+    
+    // Oy kullanma
+    match /commentVotes/{voteId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Analytics
+    match /analytics/{analyticsId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Visit logs
+    match /visitLogs/{logId} {
+      allow read: if request.auth != null;
+      allow write: if true;
+    }
+
+    // Ratings
+    match /ratings/{ratingId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /profile-photos/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+} 
