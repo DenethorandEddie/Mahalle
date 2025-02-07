@@ -1361,7 +1361,8 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<MahalleDe
         ilce: location.ilce,
         mahalle: originalMahalle || params.mahalle
       }
-    }
+    },
+    revalidate: 60 // Her 60 saniyede bir yeniden oluşturulabilir
   };
 };
 
